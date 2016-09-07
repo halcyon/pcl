@@ -1,0 +1,2 @@
+
+((:TITLE "Bob" :ARTIST "Smith" :RATING 35 :RIPPED T) (:TITLE "Totally Insane" :ARTIST "Zach Tellman" :RATING 1 :RIPPED T) (:TITLE "Mowing His Lawn" :ARTIST "Rich Hickey" :RATING 2 :RIPPED T) (:TITLE "No More Stu" :ARTIST "Stuart Halloway" :RATING 5 :RIPPED T) (:TITLE "Fungus" :ARTIST "John Smith" :RATING 3 :RIPPED T) (:TITLE "Roses" :ARTIST "Kathy Mattea" :RATING 7 :RIPPED T)) 

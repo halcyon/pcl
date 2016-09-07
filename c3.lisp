@@ -5,18 +5,11 @@
 
 (defvar *db* nil)
 
-(defun add-record (cd) (push cd *db*))
-
-(add-record (make-cd "Roses" "Kathy Mattea" 7 t))
-(add-record (make-cd "Fungus" "John Smith" 3 t))
-(add-record (make-cd "No More Stu" "Stuart Halloway" 5 t))
-(add-record (make-cd "Mowing His Lawn" "Rich Hickey" 2 t))
-(add-record (make-cd "Totally Insane" "Zach Tellman" 1 t))
-
 (defun dump-db ()
   (dolist (cd *db*)
     (format t "~{~a:~10t~a~%~}~%" cd)))
 
+(defun add-record (cd) (push cd *db*))
 
 (defun prompt-read (prompt)
   (format *query-io* "~a: " prompt)
@@ -33,3 +26,15 @@
 (defun add-cds ()
   (loop (add-record (prompt-for-cd))
      (if (not (y-or-n-p "Another? [y/n]: ")) (return))))
+
+(defun save-db (filename)
+  (with-open-file (out filename
+                       :direction :output
+                       :if-exists :supersede)
+    (with-standard-io-syntax
+      (print *db* out))))
+
+(defun load-db (filename)
+  (with-open-file (in filename)
+    (with-standard-io-syntax
+      (setf *db* (read in)))))
